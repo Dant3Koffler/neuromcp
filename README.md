@@ -57,8 +57,8 @@ Enhanced LLM functionality through:
 
 The framework includes integrated support for the latest LLM models:
 
-- OpenAI GPT-4 Turbo (gpt-4-0125-preview)
-- Anthropic Claude 3 (claude-3-opus, claude-3-sonnet)
+- OpenAI GPT-4.1
+- Anthropic Claude 3.7 (claude-3.7-sonnet)
 - Gemini Pro and Ultra
 - Mistral Large
 - Custom model integration support
@@ -133,10 +133,10 @@ class MyAgent extends NeuralAgent {
 ```typescript
 import { LLMNeuralAgent } from '@neuro-mcp/agents';
 
-// OpenAI GPT-4 Integration
+// OpenAI GPT-4.1 Integration
 const gpt4Agent = new LLMNeuralAgent({
     provider: 'openai',
-    model: 'gpt-4-0125-preview',
+    model: 'gpt-4.1',
     apiKey: process.env.OPENAI_API_KEY,
     parameters: {
         maxTokens: 4096,
@@ -147,7 +147,7 @@ const gpt4Agent = new LLMNeuralAgent({
 // Claude 3 Integration
 const claudeAgent = new LLMNeuralAgent({
     provider: 'anthropic',
-    model: 'claude-3-opus',
+    model: 'claude-3.7-sonnet',
     apiKey: process.env.ANTHROPIC_API_KEY,
     parameters: {
         maxTokens: 4096,
@@ -171,12 +171,12 @@ const multiModelAgent = new LLMNeuralAgent({
     providers: [
         {
             provider: 'openai',
-            model: 'gpt-4-0125-preview',
+            model: 'gpt-4.1',
             apiKey: process.env.OPENAI_API_KEY
         },
         {
             provider: 'anthropic',
-            model: 'claude-3-opus',
+            model: 'claude-3.7-sonnet',
             apiKey: process.env.ANTHROPIC_API_KEY
         }
     ],
@@ -197,7 +197,7 @@ const response = await multiModelAgent.processText("Analyze this market data and
 ```typescript
 const agent = new LLMNeuralAgent({
     provider: 'openai',
-    model: 'gpt-4-0125-preview',
+    model: 'gpt-4.1',
     contextManagement: {
         strategy: 'sliding',
         maxContextSize: 16384,
